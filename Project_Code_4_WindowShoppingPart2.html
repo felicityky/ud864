@@ -108,8 +108,8 @@
             populateInfoWindow(this, largeInfowindow);
           });
         }
-        document.getElementById('show-listings').addEventListener('click', showListings);
-        document.getElementById('hide-listings').addEventListener('click', hideListings);
+        document.getElementById('show-listings').addEventListener('click', showListings,false);
+        document.getElementById('hide-listings').addEventListener('click', hideListings,false);
       }
 
       // This function populates the infowindow when the marker is clicked. We'll only allow
@@ -133,6 +133,7 @@
         var bounds = new google.maps.LatLngBounds();
         // Extend the boundaries of the map for each marker and display the marker
         for (var i = 0; i < markers.length; i++) {
+          // 是否显示marker的关键
           markers[i].setMap(map);
           bounds.extend(markers[i].position);
         }
@@ -148,8 +149,7 @@
     </script>
 
     <script async defer
-        src=
-        "https://maps.googleapis.com/maps/api/js?key=MYAPIKEY&v=3&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_nt0-jmChg8OX1aFleQtNZooNws_PB5U&callback=initMap">
     </script>
 
   </body>

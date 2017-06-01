@@ -72,38 +72,44 @@
         // Create a styles array to use with the map.
         var styles = [
           {
-            featureType: 'water',
+            // 选择器
+            featureType: 'water',//选择水体，//水体的所有元素
+            // 样式器
             stylers: [
               { color: '#19a0d8' }
             ]
           },{
-            featureType: 'administrative',
-            elementType: 'labels.text.stroke',
+            // 选择器
+            // 应用样式器的几何特征：道路，公园，水体，商家等
+            featureType: 'administrative',// 选择所有行政区
+            // 应用样式器的元素：选择与指定特征相关的文本标签的 描边
+            elementType: 'labels.text.stroke',//行政区文本的描边
+            // 样式器
             stylers: [
               { color: '#ffffff' },
               { weight: 6 }
             ]
           },{
             featureType: 'administrative',
-            elementType: 'labels.text.fill',
+            elementType: 'labels.text.fill',//标签的填充区，标签文本周围的彩色轮廓？？
             stylers: [
               { color: '#e85113' }
             ]
           },{
-            featureType: 'road.highway',
-            elementType: 'geometry.stroke',
+            featureType: 'road.highway',//选择国道
+            elementType: 'geometry.stroke',//几何结构.描边
             stylers: [
               { color: '#efe9e4' },
-              { lightness: -40 }
+              { lightness: -40 }//亮度：负值增加暗度，正值增加亮度，饱和度？？
             ]
           },{
-            featureType: 'transit.station',
+            featureType: 'transit.station',//选择所有公交站
             stylers: [
-              { weight: 9 },
-              { hue: '#e85113' }
+              { weight: 9 },//设置特征的粗细，像素值
+              { hue: '#e85113' }//基础颜色，色调？？
             ]
           },{
-            featureType: 'road.highway',
+            featureType: 'road.highway',//选择国道
             elementType: 'labels.icon',
             stylers: [
               { visibility: 'off' }
@@ -121,8 +127,8 @@
               { lightness: -100 }
             ]
           },{
-            featureType: 'poi',
-            elementType: 'geometry',
+            featureType: 'poi',//选择所有景点
+            elementType: 'geometry',//几何结构
             stylers: [
               { visibility: 'on' },
               { color: '#f0e4d3' }
@@ -237,21 +243,28 @@
       // icon of that color. The icon will be 21 px wide by 34 high, have an origin
       // of 0, 0 and be anchored at 10, 34).
       function makeMarkerIcon(markerColor) {
-        var markerImage = new google.maps.MarkerImage(
-          'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
-          '|40|_|%E2%80%A2',
-          new google.maps.Size(21, 34),
-          new google.maps.Point(0, 0),
-          new google.maps.Point(10, 34),
-          new google.maps.Size(21,34));
+        // var markerImage = new google.maps.MarkerImage(
+        // 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +'|40|_|%E2%80%A2',
+        //   new google.maps.Size(21, 34),
+        //   new google.maps.Point(0, 0),
+        //   new google.maps.Point(10, 34),
+        //   new google.maps.Size(21,34));
+
+        //这些参数到底什么意思啊？？？
+        var markerImage = {
+          url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +'|40|_|%E2%80%A2',
+          size: google.maps.Size(21, 34),//width,height
+          origin: google.maps.Point(0, 0),//The position of the image within a sprite, if any. By default, the origin is located at the top left corner of the image (0, 0).
+          anchor: google.maps.Point(10, 34),
+          scaledSize: google.maps.Size(21,34)
+        };
         return markerImage;
       }
 
     </script>
 
     <script async defer
-        src=
-        "https://maps.googleapis.com/maps/api/js?key=MYAPIKEY&v=3&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_nt0-jmChg8OX1aFleQtNZooNws_PB5U&callback=initMap">
     </script>
 
   </body>

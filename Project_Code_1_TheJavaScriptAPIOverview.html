@@ -22,14 +22,16 @@
       function initMap() {
         // Constructor creates a new map - only center and zoom are required.
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.7413549, lng: -73.9980244},
-          zoom: 13
+          //  如何获取 纬度经度：https://google-developers.appspot.com/maps/documentation/utils/geocoder/
+          center: {lat: 30.23979, lng: 120.147514},
+          zoom: 8
+          // backgroundColor: 'red'
         });
       }
     </script>
 
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=MYAPIKEY&v=3&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_nt0-jmChg8OX1aFleQtNZooNws_PB5U&callback=initMap">
     </script>
 
   </body>
